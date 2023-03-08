@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -maxdepth 1 -printf '%f\n' | sort -n | sed '1i .\n..\n' | sed -e 's/$/,/' -e 's/^/"/' -e 's/$/"/' | tr -d '\n' | sed 's/,$//'
+ls -xamp
