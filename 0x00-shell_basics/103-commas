@@ -1,2 +1,3 @@
 #!/bin/bash
-ls -1Apv | awk '{printf("%s,",$0)}; END{printf("\n")}' | sed 's/,$/\//g' 
+ls -1Apv | awk '{printf("%s,",$0)}' | sed -n '1h; 1!H; ${g;s/,$/\//g;p;}'
+
