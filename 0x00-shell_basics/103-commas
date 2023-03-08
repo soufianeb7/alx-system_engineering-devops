@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1Apv | awk '{printf("%s,",$0)}' | sed -n '1h; 1!H; ${g;s/,$/\//g;p;}'
+printf '%s\n' ./* | sort -n | awk '{printf "%s%s",$0,(NR%3?ORS:",")} END {print ""}' | sed -e '$a\' -e 's/\.\//&\//' -e '1s/^/.\n..\n/'
