@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1Apv | awk '{printf("%s,",$0)}' | sed 's/,$/\//g' && echo ""
+ls -1Apv | awk '{printf("%s,",$0)}; END{printf("\n")}' | sed 's/,$/\//g' 
