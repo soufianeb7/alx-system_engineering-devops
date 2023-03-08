@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1AF | tr '\n' ',' | sed 's/,$/\n/' | sed -e 's/^\(.*\/\)$/"\1",/' -e 's/^\([^\/]*\)$/"\1",/' | tr -d '\n' | sed 's/,$//'
+find . -maxdepth 1 -printf '%f\n' | sort -n | sed '1i .\n..\n' | sed -e 's/$/,/' -e 's/^/"/' -e 's/$/"/' | tr -d '\n' | sed 's/,$//'
