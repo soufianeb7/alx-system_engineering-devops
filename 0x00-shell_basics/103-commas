@@ -1,2 +1,2 @@
 #!/bin/bash
-printf '%s\n' ./* | sort -n | awk '{printf "%s%s",$0,(NR%3?ORS:",")} END {print ""}' | sed -e '$a\' -e 's/\.\//&\//' -e '1s/^/.\n..\n/'
+ls -1AF | tr '\n' ',' | sed 's/,$/\n/' | sed -e 's/^\(.*\/\)$/"\1",/' -e 's/^\([^\/]*\)$/"\1",/' | tr -d '\n' | sed 's/,$//'
